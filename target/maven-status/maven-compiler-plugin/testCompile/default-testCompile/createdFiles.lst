@@ -1,0 +1,7 @@
+steps\RunTest.class
+pages\BasketPage.class
+steps\StepDefinition.class
+pages\PageBase.class
+steps\TestBase.class
+pages\CameraPage.class
+pages\MainPage.class

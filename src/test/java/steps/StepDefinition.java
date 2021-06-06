@@ -33,6 +33,7 @@ public class StepDefinition {
 
     @Когда("на странице экшн-камер выбирает чебокс GoPro и убеждается в том что чекбокс активен")
     public void наСтраницеЭкшнКамерВыбираетЧебоксGoProИУбеждаетсяВТомЧтоЧекбоксАктивен() throws Exception {
+        camera.searchCheckBox();
         camera.chooseCheckbox();
     }
 

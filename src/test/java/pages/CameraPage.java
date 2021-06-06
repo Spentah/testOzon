@@ -15,8 +15,12 @@ public class CameraPage extends PageBase {
     }
     public static String cameraAttribute;
     public static String expectedPrice;
-    @FindBy(xpath = "//a[@href='/category/ekshn-kamery-15630/?brand=26303163']//div")
+
+    @FindBy(xpath = "//div[@class='cx8']//div[@class='_3eqP']")
     private WebElement checkbox;
+
+    @FindBy(xpath = "//span[@class='show']")
+    private WebElement showAll;
 
     @FindBy(xpath = "//input[@qa-id='range-from']")
     private WebElement costFrom;
@@ -36,17 +40,23 @@ public class CameraPage extends PageBase {
     @FindBy(xpath = "//span[@class='f-caption--bold a9c4']")
     private WebElement checkBasket;
 
+    @FindBy(xpath = "//input[@class='_16XE hlVC']")
+    private WebElement searchField;
+
     By basketButton = By.xpath("//div[@class='widget-search-result-container ao3']//a[@class='tile-hover-target b3u9']");
 
-    //div[@class='a0t6 a0t7']//button//div[text()='В корзину']
+    public void searchCheckBox(){
+        waitForVisibility(showAll);
+        showAll.click();
+        searchField.sendKeys("gopro");
+    }
+
     public void chooseCheckbox() {
-        waitForVisibility(checkbox);
+//        waitForVisibility(checkbox);
         checkbox.click();
-        if (driver.findElement(By.xpath("//a[@href='/category/ekshn-kamery-15630/?brand=26303163']//input"))
-                .getAttribute("checked").equals("false")){
+        if (driver.findElement(By.xpath("//div[@class='cx8']//div[@class='_3eqP']//input"))
+                .getAttribute("checked").equals("false")) {
             Assert.fail("Чекбокс не активен");
-        } else {
-            Assert.assertTrue(true);
         }
     }
 
